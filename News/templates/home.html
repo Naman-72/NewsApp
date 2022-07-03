@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}
+News
+{% endblock title %}
+{% block log %}
+        {% if user.is_authenticated %}
+            <span class="nav-item bg-primary ">
+                <strong>{{ us }}</strong> 
+            </span>
+            <button class="nav-item px-2 mx-2 float-right">
+                <a class="nav-link active" href="{% url 'signout' %}">SignOut</a>
+            </button>
+        {% else %}
+            <button  class="nav-item px-2 mx-2">
+                <a class="nav-link active" href="{% url 'login' %}">Login</a>
+              </button>
+            <button  class="nav-item px-2 mx-2">
+                <a class="nav-link active " href="{% url 'signup' %}">Signup</a>
+              </button>
+        {% comment %} <form class="d-flex px-2 mx-2" method="get">
+            <input class="form-control me-2" type="search" name="countrySearch" placeholder="Search Country" aria-label="Search">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </form>  {% endcomment %}
+        {% endif %}
+{% endblock log %}
+{% block content %}
+
+{% comment %} {% for message  in messages  %}
+<div class="alert alert-{{ message.tags }}  alert-dismissible fade show" role="alert">
+    <strong>Message</strong> : {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+</div>
+{% endfor %} {% endcomment %}
+
+
+<div class="container">
+    <div class="text-center">
+        <img src="/static/BreakingNews.png" width="300" height="300" class="img-fluid" alt="Loading">
+    </div>
+    <div class="row">    
+        {% for i in result %}
+            <div class="col-sm-4 card py-3 my-4 mx-auto px-auto"  >
+                <img src={{ i.urlToImage }} class="card-img-top" alt="Loading">
+                <div class="card-body">
+                    <div >
+                        <h3 class="card-title text-center" style="color: rgb(221, 16, 240);">
+                            <!-- <a href={{ i.url }} style="color: rgb(221, 16, 240);" target="_blank"> -->
+                                {{ i.title }}
+                            <!-- </a> -->
+                        </h3>
+                    </div>
+                    {% comment %} <h6>{{ source.i }}</h6> {% endcomment %}
+                    <!-- style="border: solid black ;" -->
+                    <div class="text-center">
+                        <p class="card-text" style="font-weight :500;" style="font-size: medium;">{{ i.description }}</p>
+                        <a href={{ i.url }} class="btn btn-primary" class="text-center" target="_blank">View More</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% comment %} <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div> {% endcomment %}
+{% endblock content %}

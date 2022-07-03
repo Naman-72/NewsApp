@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block log %}
+{% if user.is_authenticated %}
+<span class="nav-item bg-primary ">
+    <strong>{{ us }}</strong> 
+</span>
+<button class="nav-item px-2 mx-2 float-right">
+    <a class="nav-link active" href="{% url 'signout' %}">SignOut</a>
+</button>
+{% else %}
+<button  class="nav-item px-2 mx-2">
+    <a class="nav-link active" href="{% url 'login' %}">Login</a>
+  </button>
+<button  class="nav-item px-2 mx-2">
+    <a class="nav-link active " href="{% url 'signup' %}">Signup</a>
+  </button>
+{% comment %} <form class="d-flex px-2 mx-2" method="get">
+<input class="form-control me-2" type="search" name="countrySearch" placeholder="Search Country" aria-label="Search">
+<button class="btn btn-primary" type="submit">Search</button>
+</form>  {% endcomment %}
+{% endif %}
+{% endblock log %}
+{% block title %}
+Contact
+{% endblock title %}
+{% block content %}
+    <div class="text-center">
+        <h1>
+            For Any Suggestion or Advice :
+        </h1>
+        <h3>
+            Mail To : anandnaman844@gmail.com
+        </h3>
+    </div>
+{% endblock content %}

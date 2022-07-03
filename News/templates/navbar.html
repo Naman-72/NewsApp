@@ -1,0 +1,39 @@
+
+<nav class="navbar navbar-expand-lg navbar-light py-3 " style="background-color: rgb(145, 33, 197);font-size: 120%;">
+    <div class="container-fluid text-uppercase text-dark " style="font-weight: bold;font-family:'Times New Roman', Times, serif">
+      <a class="navbar-brand" href="{% url 'india' %}">News</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-2 mx-2">
+          <li class="nav-item px-2 mx-2">
+            <a class="nav-link active" aria-current="page" href="{% url 'world' %}">World</a>
+          </li>
+          <li class="nav-item px-2 mx-2">
+            <a class="nav-link active" aria-current="page" href="{% url 'india' %}">India</a>
+          </li>
+          <li class="nav-item px-2 mx-2">
+            <a class="nav-link active" href="{% url 'contact' %}">Contact</a>
+          </li>
+          <li class="nav-item px-2 mx-2">
+            <a class="nav-link active" href="{% url 'about' %}">About</a>
+          </li>
+        </ul>
+        {% comment %} <form class="d-flex px-2 mx-2" method="get">
+          <input class="form-control me-2" type="search" name="countrySearch" placeholder="Search Country" aria-label="Search">
+          <button class="btn btn-primary" type="submit">Search</button>
+        </form> {% endcomment %}
+      </div>
+    </div>
+  </nav>
+  {% block log %}
+  
+  {% endblock log %}
+  {% comment %} <nav class="navbar navbar-dark bg-primary">
+    <!-- Navbar content -->
+  </nav>
+  
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <!-- Navbar content -->
+  </nav> {% endcomment %}

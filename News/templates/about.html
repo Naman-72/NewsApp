@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+About
+{% endblock title %}
+{% block log %}
+{% if user.is_authenticated %}
+<span class="nav-item bg-primary ">
+    <strong>{{ us }}</strong> 
+</span>
+<button class="nav-item px-2 mx-2 float-right">
+    <a class="nav-link active" href="{% url 'signout' %}">SignOut</a>
+</button>
+{% else %}
+<button  class="nav-item px-2 mx-2">
+    <a class="nav-link active" href="{% url 'login' %}">Login</a>
+  </button>
+<button  class="nav-item px-2 mx-2">
+    <a class="nav-link active " href="{% url 'signup' %}">Signup</a>
+  </button>
+{% comment %} <form class="d-flex px-2 mx-2" method="get">
+<input class="form-control me-2" type="search" name="countrySearch" placeholder="Search Country" aria-label="Search">
+<button class="btn btn-primary" type="submit">Search</button>
+</form>  {% endcomment %}
+{% endif %}
+{% endblock log %}
+{% block content %}
+<h1>About</h1>
+
+ <div class="bg-info container text-dark py-auto mt-3 ">
+     {% comment %} <img src="/static/cse2.png" class="Centered element"  width=200 height=200 alt="loading"> {% endcomment %}
+        <div class="container-fluid">
+            <div class="text-center">
+                <h1>HELLO GUYS</h1>
+                <h2>I AM NAMAN ANAND</h2>
+                <h3>I AM CURRENTLY STUDYING IN IITG CSE</h3>
+                <h2>EMAIL ID : a.naman@iitg.ac.in</h2>
+            {% comment %} </div>
+            <div class="bg-secondary"> {% endcomment %}
+                {% comment %} <h2>PHONE NO : 7838038429</h2> {% endcomment %}
+            </div>
+        </div>
+ </div>
+{% endblock content %}
